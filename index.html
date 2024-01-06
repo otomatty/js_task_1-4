@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // タスク一覧の初期データ
+      let tasks = [
+        { content: "机を片付ける", genre: "掃除" },
+        { content: "牛乳を買う", genre: "買い物" },
+        { content: "散歩する", genre: "運動" },
+      ];
+
+      // タスク一覧を表示する関数
+      function displayTasks() {
+        console.log("=========================");
+        console.log("現在持っているタスク一覧");
+        console.log("=========================");
+        tasks.forEach((task, index) => {
+          console.log(
+            `${index}：【内容】${task.content}、【ジャンル】${task.genre}`
+          );
+        });
+      }
+
+      // 最初にタスク一覧を表示
+      displayTasks();
+
+      // タスクを入力して追加する処理
+      while (true) {
+        const newContent = prompt("タスクを入力してください");
+
+        // キャンセルが押されたらループを終了
+        if (newContent === null) {
+          break;
+        }
+
+        const newGenre = prompt("ジャンルを入力してください");
+
+        // 入力されたタスクを追加
+        tasks.push({ content: newContent, genre: newGenre });
+
+        // 更新されたタスク一覧を表示
+        displayTasks();
+      }
+    </script>
+  </body>
+</html>
